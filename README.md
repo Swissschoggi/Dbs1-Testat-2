@@ -38,7 +38,8 @@ Tabellenbeschreibung:
     Schaden: Meldung, Kosten, Versicherung 
 
  
-    
-<img width="1254" height="791" alt="Autoverkauf G A" src="https://github.com/user-attachments/assets/bc555c6a-4b21-479d-8774-3eccdb624c64" />
+    <img width="1254" height="791" alt="RLJRZX~1" src="https://github.com/user-attachments/assets/9b97c259-032d-4ffc-9ea9-3e1aaa11b53a" />
+
+
 
  
