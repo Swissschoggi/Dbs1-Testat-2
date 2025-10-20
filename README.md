@@ -38,7 +38,80 @@ Tabellenbeschreibung:
     Schaden: Meldung, Kosten, Versicherung 
 
  
-    
-<img width="1254" height="791" alt="Autoverkauf G A" src="https://github.com/user-attachments/assets/bc555c6a-4b21-479d-8774-3eccdb624c64" />
+<img width="1254" height="791" alt="RLJRZX~1" src="https://github.com/user-attachments/assets/9b97c259-032d-4ffc-9ea9-3e1aaa11b53a" />
+
+
 
  
+## Relationale Schreibweise 
+
+auto ( 
+
+fahrzeugID PK, 
+	kennzeichen, 
+	raeder 
+
+) 
+
+kunde ( 
+
+kundenID PK, 
+	name, 
+	vorname, 
+	geburtsdatum 
+
+) 
+
+pkw ( 
+
+autoID PK, 
+	sitze, 
+	gewicht 
+
+) 
+
+transporter ( 
+
+autoID PK, 
+transporterID PK, 
+maximallast 
+
+) 
+
+ausleihe ( 
+
+ausleiheID PK, 
+	datumausleieh, 
+	datumrückgabe, 
+	autoID FK, 
+	kundeID FK 
+
+) 
+
+schaden ( 
+
+schadenID PK, 
+	meldung, 
+	kosten, 
+	versicherung, 
+	ausleiheID FK 
+
+) 
+
+ 
+
+fuehrerscheintyp ( 
+
+fuehrerscheintypID PK, 
+	klasse, 
+
+) 
+
+kundefuehrerscheintyp ( 
+
+kundeID FK, 
+	fuehrerscheintypID FK, 
+
+PK (kundenID, fuehrerscheintypID) 
+
+) 
