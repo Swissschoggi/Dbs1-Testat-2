@@ -20,8 +20,9 @@ CREATE DATABASE :database WITH OWNER=:user ENCODING='UTF8';
 
 \encoding 'UTF8'
 
-\c -reuse-prevoius=on :database postgres
-\c -reuse-previous=on :database user
+\c -reuse-previous=on :database postgres
+\c -reuse-previous=on :database :user
+
 \ir 2_schemas.sql
 \ir 3_inserts.sql
 \ir 4_constraints.sql
