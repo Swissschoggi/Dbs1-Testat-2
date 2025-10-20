@@ -1,5 +1,5 @@
 CREATE TABLE auto (
-    fahrzeugID INTEGER PRIMARY KEY,
+    fahrzeugID INTEGER  PRIMARY KEY,
     kennzeichen VARCHAR (20) NOT NULL,
     raeder INTEGER
 );
@@ -18,14 +18,14 @@ CREATE TABLE transporter (
 );
 
 CREATE TABLE kunde (
-    kundenID PRIMARY KEY,
+    kundenID INTEGER  PRIMARY KEY,
     name VARCHAR (20),
     vorname VARCHAR (20),
     geburtsdatum DATE    
 );
 
 CREATE TABLE ausleihe (
-    ausleiheID INTEGER PRIMARY KEY,
+    ausleiheID INTEGER  PRIMARY KEY,
     fahrzeugID INTEGER NOT NULL,
     kundenID INTEGER NOT NULL,    
     datumausleihe DATE,
@@ -34,7 +34,7 @@ CREATE TABLE ausleihe (
 );
 
 CREATE TABLE schaden (
-    schadenID PRIMARY KEY,
+    schadenID INTEGER  PRIMARY KEY,
     ausleiheID INTEGER NOT NULL,
     meldung DATE,
     kosten DECIMAL,
@@ -43,7 +43,7 @@ CREATE TABLE schaden (
 );
 
 CREATE TABLE fuehrerscheintyp (
-    fuehrerscheintypID INTEGER PRIMARY KEY,
+    fuehrerscheintypID INTEGER  PRIMARY KEY,
     klasse VARCHAR (20) NOT NULL
 );
 
