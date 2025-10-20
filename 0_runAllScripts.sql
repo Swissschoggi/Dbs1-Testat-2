@@ -1,1 +1,15 @@
+BEGIN;
 
+DROP DATABASE IF EXISTS "admin@GA";
+
+DROP USER IF EXISTS "admin";
+
+CREATE USER "admin"
+WITH
+  PASSWORD 'postgres';
+
+CREATE DATABASE "admin@GA"
+WITH
+  OWNER = "admin";
+
+COMMIT;

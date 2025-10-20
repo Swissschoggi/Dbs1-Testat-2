@@ -43,3 +43,75 @@ Tabellenbeschreibung:
 
 
  
+## Relationale Schreibweise 
+
+auto ( 
+
+fahrzeugID PK, 
+	kennzeichen, 
+	raeder 
+
+) 
+
+kunde ( 
+
+kundenID PK, 
+	name, 
+	vorname, 
+	geburtsdatum 
+
+) 
+
+pkw ( 
+
+autoID PK, 
+	sitze, 
+	gewicht 
+
+) 
+
+transporter ( 
+
+autoID PK, 
+transporterID PK, 
+maximallast 
+
+) 
+
+ausleihe ( 
+
+ausleiheID PK, 
+	datumausleieh, 
+	datumrückgabe, 
+	autoID FK, 
+	kundeID FK 
+
+) 
+
+schaden ( 
+
+schadenID PK, 
+	meldung, 
+	kosten, 
+	versicherung, 
+	ausleiheID FK 
+
+) 
+
+ 
+
+fuehrerscheintyp ( 
+
+fuehrerscheintypID PK, 
+	klasse, 
+
+) 
+
+kundefuehrerscheintyp ( 
+
+kundeID FK, 
+	fuehrerscheintypID FK, 
+
+PK (kundenID, fuehrerscheintypID) 
+
+) 
