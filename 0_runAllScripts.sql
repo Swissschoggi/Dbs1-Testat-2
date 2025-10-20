@@ -1,6 +1,6 @@
 SET client_min_messages = ERROR;
-\set user admin
-\set password '\'admin\''
+\set user autouser
+\set password '\'autopassword\''
 \set database autoverleih
 \set promptvariable ''
 
