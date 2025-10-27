@@ -8,12 +8,12 @@ CREATE TABLE pkw (
     fahrzeugID INTEGER NOT NULL,
     sitze INTEGER,
     gewicht DECIMAL
-);
+) INHERITS (auto);
 
 CREATE TABLE transporter (
     fahrzeugID INTEGER NOT NULL,
     maximallast DECIMAL
-);
+) INHERITS (auto);
 
 CREATE TABLE kunde (
     kundenID INTEGER  PRIMARY KEY,
