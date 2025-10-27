@@ -1,8 +1,8 @@
 ALTER TABLE pkw
 ADD CONSTRAINT fk_auto_pkw
-    FOREIGN KEY (fahrzeugID) REFERENCES auto (fahrzeugID)
+    FOREIGN KEY (fahrzeugID) REFERENCES auto(fahrzeugID)
 ;
-
+     
 ALTER TABLE transporter
 ADD CONSTRAINT fk_auto_transporter
     FOREIGN KEY (fahrzeugID) REFERENCES auto (fahrzeugID)
@@ -30,5 +30,5 @@ ADD CONSTRAINT fk_fuehrerscheintyp_kundefuehrerscheintyp
 
 ALTER TABLE kundefuehrerscheintyp
 ADD CONSTRAINT fk_kunde_kundefuehrerscheintyp
-    FOREIGN KEY (kundenID) REFERENCES (kundenID)
+    FOREIGN KEY (kundenID) REFERENCES kunde (kundenID)
 ;
