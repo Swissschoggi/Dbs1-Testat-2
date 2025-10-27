@@ -7,12 +7,12 @@ CREATE TABLE auto (
 CREATE TABLE pkw (
     fahrzeugID INTEGER NOT NULL,
     sitze INTEGER,
-    gewicht DECIMAL,
+    gewicht DECIMAL
 );
 
 CREATE TABLE transporter (
     fahrzeugID INTEGER NOT NULL,
-    maximallast DECIMAL,
+    maximallast DECIMAL
 );
 
 CREATE TABLE kunde (
@@ -27,7 +27,7 @@ CREATE TABLE ausleihe (
     fahrzeugID INTEGER NOT NULL,
     kundenID INTEGER NOT NULL,    
     datumausleihe DATE,
-    datumruekgabe DATE,
+    datumruekgabe DATE
 );
 
 CREATE TABLE schaden (
@@ -35,7 +35,7 @@ CREATE TABLE schaden (
     ausleiheID INTEGER NOT NULL,
     meldung DATE,
     kosten DECIMAL,
-    versicherung VARCHAR (20) NOT NULL,
+    versicherung VARCHAR (20) NOT NULL
 );
 
 CREATE TABLE fuehrerscheintyp (
@@ -45,5 +45,5 @@ CREATE TABLE fuehrerscheintyp (
 
 CREATE TABLE kundefuehrerscheintyp (
     fuehrerscheintypID INTEGER NOT NULL,
-    kundenID INTEGER NOT NULL,
+    kundenID INTEGER NOT NULL
 );
