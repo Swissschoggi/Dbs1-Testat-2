@@ -20,8 +20,7 @@ CREATE TABLE ausleihe (
     fahrzeugID INTEGER NOT NULL,
     kundenID INTEGER NOT NULL,    
     datumausleihe DATE,
-    datumruekgabe DATE,
-    PRIMARY KEY (fahrzeugID, kundenID)
+    datumruekgabe DATE
 );
 
 CREATE TABLE schaden (
@@ -29,8 +28,7 @@ CREATE TABLE schaden (
     ausleiheID INTEGER NOT NULL,
     meldung DATE,
     kosten DECIMAL,
-    versicherung VARCHAR (20) NOT NULL,
-    PRIMARY KEY (ausleiheID)
+    versicherung VARCHAR (20) NOT NULL
 );
 
 CREATE TABLE fuehrerscheintyp (
@@ -40,6 +38,5 @@ CREATE TABLE fuehrerscheintyp (
 
 CREATE TABLE kundefuehrerscheintyp (
     fuehrerscheintypID INTEGER NOT NULL,
-    kundenID INTEGER NOT NULL,
-    PRIMARY KEY (fuehrerscheintypID, kundenID)
+    kundenID INTEGER NOT NULL
 );
