@@ -1,13 +1,3 @@
-ALTER TABLE pkw
-ADD CONSTRAINT fk_auto_pkw
-    FOREIGN KEY (fahrzeugID) REFERENCES auto(fahrzeugID)
-;
-     
-ALTER TABLE transporter
-ADD CONSTRAINT fk_auto_transporter
-    FOREIGN KEY (fahrzeugID) REFERENCES auto (fahrzeugID)
-;
-
 ALTER TABLE ausleihe
 ADD CONSTRAINT fk_auto_ausleihe
     FOREIGN KEY (fahrzeugID) REFERENCES auto (fahrzeugID)

@@ -1,19 +1,12 @@
 CREATE TABLE auto (
     fahrzeugID INTEGER  PRIMARY KEY,
     kennzeichen VARCHAR (20) NOT NULL,
-    raeder INTEGER
-);
-
-CREATE TABLE pkw (
-    fahrzeugID INTEGER NOT NULL,
+    raeder INTEGER NOT NULL,
     sitze INTEGER,
-    gewicht DECIMAL
-) INHERITS (auto);
-
-CREATE TABLE transporter (
-    fahrzeugID INTEGER NOT NULL,
-    maximallast DECIMAL
-) INHERITS (auto);
+    gewicht DECIMAL,
+    maximallast DECIMAL,
+    typ TEXT NOT NULL
+);
 
 CREATE TABLE kunde (
     kundenID INTEGER  PRIMARY KEY,
