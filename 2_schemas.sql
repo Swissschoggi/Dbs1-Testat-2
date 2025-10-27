@@ -13,7 +13,7 @@ CREATE TABLE
     kundenID INTEGER PRIMARY KEY,
     name VARCHAR(20),
     vorname VARCHAR(20),
-    geburtsdatum DATE CHECK (geburtsdatum <= CURRENT_DATE  INTERVAL '18 years')
+    geburtsdatum DATE CHECK (geburtsdatum <= CURRENT_DATE - INTERVAL '18 years')
   );
 
 CREATE TABLE
