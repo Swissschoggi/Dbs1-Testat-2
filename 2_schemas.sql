@@ -1,3 +1,6 @@
+---------------------------------
+-- Fynn Gächter, Andretta Filippo
+---------------------------------
 CREATE TABLE auto (
     fahrzeugID INTEGER  PRIMARY KEY,
     kennzeichen VARCHAR (20) NOT NULL UNIQUE,

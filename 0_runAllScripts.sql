@@ -1,3 +1,6 @@
+---------------------------------
+-- Fynn Gächter, Andretta Filippo
+---------------------------------
 SET client_min_messages = ERROR;
 \set user autouser
 \set password '\'autopassword\''

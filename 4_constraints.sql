@@ -1,3 +1,6 @@
+---------------------------------
+-- Fynn Gächter, Andretta Filippo
+---------------------------------
 ALTER TABLE ausleihe
 ADD CONSTRAINT fk_auto_ausleihe
     FOREIGN KEY (fahrzeugID) REFERENCES auto (fahrzeugID)
