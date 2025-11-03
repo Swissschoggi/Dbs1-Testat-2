@@ -21,13 +21,13 @@ INSERT INTO kunde (kundenID, name, vorname, geburtsdatum) VALUES
 (1, 'Wurst', 'Hans', to_date('2003-02-12', 'YYYY-MM-DD')),
 (2, 'Muster', 'Max', to_date('2004-11-02', 'YYYY-MM-DD')),
 (3, 'Müller', 'Peter', to_date('1957-05-14', 'YYYY-MM-DD'))
-(4, 'Huber', 'Lea', TO_DATE('1990-03-25', 'YYYY-MM-DD')),
-(5, 'Keller', 'Jonas', TO_DATE('1988-08-10', 'YYYY-MM-DD')),
-(6, 'Steiner', 'Laura', TO_DATE('1995-07-09', 'YYYY-MM-DD')),
-(7, 'Weber', 'Simon', TO_DATE('1980-01-19', 'YYYY-MM-DD')),
-(8, 'Fischer', 'Nina', TO_DATE('2001-12-01', 'YYYY-MM-DD')),
-(9, 'Zimmermann', 'Luca', TO_DATE('1999-09-23', 'YYYY-MM-DD')),
-(10, 'Baumann', 'Sophie', TO_DATE('1985-11-13', 'YYYY-MM-DD'));
+(4, 'Huber', 'Lea', to_date('1990-03-25', 'YYYY-MM-DD')),
+(5, 'Keller', 'Jonas', to_date('1988-08-10', 'YYYY-MM-DD')),
+(6, 'Steiner', 'Laura', to_date('1995-07-09', 'YYYY-MM-DD')),
+(7, 'Weber', 'Simon', to_date('1980-01-19', 'YYYY-MM-DD')),
+(8, 'Fischer', 'Nina', to_date('2001-12-01', 'YYYY-MM-DD')),
+(9, 'Zimmermann', 'Luca', to_date('1999-09-23', 'YYYY-MM-DD')),
+(10, 'Baumann', 'Sophie', to_date('1985-11-13', 'YYYY-MM-DD'));
 
 -- TABLE ausleihe
 
