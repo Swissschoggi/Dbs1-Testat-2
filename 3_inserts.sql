@@ -20,7 +20,7 @@ INSERT INTO auto (fahrzeugID, kennzeichen, raeder, sitze, gewicht, maximallast, 
 INSERT INTO kunde (kundenID, name, vorname, geburtsdatum) VALUES
 (1, 'Wurst', 'Hans', to_date('2003-02-12', 'YYYY-MM-DD')),
 (2, 'Muster', 'Max', to_date('2004-11-02', 'YYYY-MM-DD')),
-(3, 'Müller', 'Peter', to_date('1957-05-14', 'YYYY-MM-DD'))
+(3, 'Müller', 'Peter', to_date('1957-05-14', 'YYYY-MM-DD')),
 (4, 'Huber', 'Lea', to_date('1990-03-25', 'YYYY-MM-DD')),
 (5, 'Keller', 'Jonas', to_date('1988-08-10', 'YYYY-MM-DD')),
 (6, 'Steiner', 'Laura', to_date('1995-07-09', 'YYYY-MM-DD')),
