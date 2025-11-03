@@ -49,13 +49,13 @@ INSERT INTO schaden (schadenID, ausleiheID, meldung, kosten, versicherung) VALUE
 (1, 1, '2025-01-10', 350.00, 'Mobiliar'),
 (2, 3, '2025-03-05', 1200.50, 'AXA'),
 (3, 5, '2025-05-06', 800.00, 'Zurich'),
-(4, 6, 'Reifenplatzer auf Autobahn', 200.00, 'Mobiliar'),
-(5, 7, 'Lackschaden an Heckklappe', 550.00, 'AXA'),
-(6, 8, 'Spiegel abgebrochen', 180.00, 'Mobiliar'),
-(7, 9, 'Kratzer an der Stoßstange', 400.00, 'Zurich'),
-(8, 10, 'Motorüberhitzung', 900.00, 'AXA'),
-(9, 2, 'Kleiner Parkschaden', 220.00, 'Zurich'),
-(10, 4, 'Innenreinigung erforderlich', 150.00, 'Mobiliar');
+(4, 6, '2025-05-07', 200.00, 'Mobiliar'),
+(5, 7, '2025-04-12', 550.00, 'AXA'),
+(6, 8, '2025-07-28', 180.00, 'Mobiliar'),
+(7, 9, '2025-08-12', 400.00, 'Zurich'),
+(8, 10, '2025-05-23', 900.00, 'AXA'),
+(9, 2, '2025-03-12', 220.00, 'Zurich'),
+(10, 4, '2025-01-31', 150.00, 'Mobiliar');
 
 -- TABLE fuehrerscheintyp
 
