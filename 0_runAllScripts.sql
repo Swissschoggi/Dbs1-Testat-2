@@ -30,9 +30,4 @@ CREATE DATABASE :database WITH OWNER=:user ENCODING='UTF8';
 \ir 3_inserts.sql
 \ir 4_constraints.sql
 
-\prompt 'Execute Queries (\\q or Ctrl-C to abort)?' promptvariable
-:promptvariable
-
 \encoding 'auto'
-
-\set ECHO queries
