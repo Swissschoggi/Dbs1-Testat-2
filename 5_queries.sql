@@ -1,3 +1,7 @@
+------------
+-- Aufgabe 1
+------------
+
 --------------------------------------------------------------
 -- DISTINCT gibt alle autotypen aus ohne duplikate anzuzeigen.
 --------------------------------------------------------------
@@ -44,6 +48,9 @@ SELECT name, vorname, geburtsdatum
 FROM kunde
 WHERE geburtsdatum <= CURRENT_DATE - INTERVAL '25 years';
 
+------------
+-- Aufgabe 2
+------------
 
 --------------------------------------------
 -- Subquery unabhängig von der outter query.
@@ -79,11 +86,6 @@ WITH kunden_mit_schaden AS (
 ) SELECT *
 FROM kunden_mit_schaden
 ORDER BY durchschnittskosten DESC;
-
-
-------------
--- Aufgabe 2
-------------
 
 --------------------------------------------------------------------------------------
 -- c) Schreiben Sie eine sinnvolle Query mit einer GROUP BY-Klausel.
