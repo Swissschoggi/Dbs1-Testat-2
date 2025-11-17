@@ -79,3 +79,32 @@ WITH kunden_mit_schaden AS (
 ) SELECT *
 FROM kunden_mit_schaden
 ORDER BY durchschnittskosten DESC;
+
+
+------------
+-- Aufgabe 2
+------------
+
+--------------------------------------------------------------------------------------
+-- c) Schreiben Sie eine sinnvolle Query mit einer GROUP BY-Klausel.
+-- Übersicht, welche Ausleihen als Nächstes zurückkommen, sortiert nach Rückgabedatum.
+--------------------------------------------------------------------------------------
+SELECT a.ausleiheID, k.name, k.vorname, a.datumruekgabe
+FROM ausleihe a
+JOIN kunde k ON a.kundenID = k.kundenID
+ORDER BY a.datumruekgabe;
+
+-------------------------------------------------------------------------------------------------
+-- d) Schreiben Sie eine sinnvolle Query mit einer Window-Funktion.
+-- Berechnet die gesamten Schadenkosten pro Kunde und zeigt sie neben den einzelnen Ausleihen an.
+-------------------------------------------------------------------------------------------------
+SELECT 
+    k.kundenID,
+    k.name,
+    a.ausleiheID,
+    s.kosten,
+    SUM(s.kosten) OVER (PARTITION BY k.kundenID) AS gesamtkosten_pro_kunde
+FROM schaden s
+JOIN ausleihe a ON s.ausleiheID = a.ausleiheID
+JOIN kunde k ON a.kundenID = k.kundenID
+ORDER BY k.kundenID, a.ausleiheID;
