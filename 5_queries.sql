@@ -43,3 +43,39 @@ ON kunde.kundenid = kundefuehrerscheintyp.kundenid;
 SELECT name, vorname, geburtsdatum
 FROM kunde
 WHERE geburtsdatum <= CURRENT_DATE - INTERVAL '25 years';
+
+
+--------------------------------------------
+-- Subquery unabhängig von der outter query.
+--------------------------------------------
+SELECT ausleihe.ausleiheid, kunde.name, kunde.vorname, schaden.anzahl_schaeden, schaden.durchschnittskosten
+FROM ausleihe
+INNER JOIN kunde ON ausleihe.kundenID = kunde.kundenid
+INNER JOIN (
+    SELECT ausleiheid,
+    COUNT (schadenid) AS anzahl_schaeden,
+    AVG(kosten) AS durchschnittskosten
+    FROM schaden
+    GROUP BY ausleiheid
+)
+schaden ON ausleihe.ausleiheID = schaden.ausleiheID
+ORDER BY schaden.durchschnittskosten DESC;
+
+-------
+-- CTE.
+-------
+WITH kunden_mit_schaden AS (
+	SELECT
+		ausleihe.ausleiheid,
+		kunde.kundenid,
+		kunde.name,
+		kunde.vorname,
+		COUNT (schadenid) AS anzahl_schaeden,
+    	AVG(kosten) AS durchschnittskosten
+	FROM ausleihe
+    JOIN kunde ON ausleihe.kundenID = kunde.kundenID
+    JOIN schaden ON ausleihe.ausleiheID = schaden.ausleiheID
+	GROUP BY ausleihe.ausleiheID, kunde.kundenID, kunde.name, kunde.vorname
+) SELECT *
+FROM kunden_mit_schaden
+ORDER BY durchschnittskosten DESC;
