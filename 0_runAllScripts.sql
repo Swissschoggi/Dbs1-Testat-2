@@ -1,3 +1,4 @@
+\pset pager off
 ---------------------------------
 -- Fynn Gächter, Andretta Filippo
 ---------------------------------
@@ -30,4 +31,12 @@ CREATE DATABASE :database WITH OWNER=:user ENCODING='UTF8';
 \ir 3_inserts.sql
 \ir 4_constraints.sql
 
+
+\prompt 'Execute Queries? (\\q to abort) ' promptvariable
+:promptvariable
+
 \encoding 'auto'
+
+\set ECHO queries
+
+\ir 5_queries.sql
