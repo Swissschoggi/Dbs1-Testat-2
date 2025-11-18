@@ -110,3 +110,14 @@ FROM schaden s
 JOIN ausleihe a ON s.ausleiheID = a.ausleiheID
 JOIN kunde k ON a.kundenID = k.kundenID
 ORDER BY k.kundenID, a.ausleiheID;
+
+CREATE VIEW AutoverleihPublic AS
+SELECT a.ausleiheid, a.datumausleihe, a.datumruekgabe, k.kundenID, k.name, k.vorname, au.fahrzeugID, au.kennzeichen, au.typ, au.sitze, au.gewicht, s.schadenID, s.meldung, s.kosten, s.versicherung
+FROM ausleihe a
+INNER JOIN kunde k ON a.kundenID = k.kundenID
+INNER JOIN auto au ON a.fahrzeugID = au.fahrzeugID
+LEFT JOIN schaden s ON a.ausleiheID = s.ausleiheID;
+
+SELECT * 
+FROM AutoverleihPublic 
+ORDER BY datumausleihe DESC;
