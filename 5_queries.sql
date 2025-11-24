@@ -136,7 +136,7 @@ ORDER BY k.kundenID, a.ausleiheID;
 -- Abfrage aller Ausleihen mit Schäden und deren Kosten
 -------------------------------------------------------
 SELECT 
-    kundenname, kennzeichen, typ, datumausleihe, datumruekgabe, meldung, kosten, versicherung
+    name, kennzeichen, typ, datumausleihe, datumruekgabe, meldung, kosten, versicherung
 FROM ausleihe_uebersicht
 WHERE schadenID IS NOT NULL
     AND kosten > 1000
