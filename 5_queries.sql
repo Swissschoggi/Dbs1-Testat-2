@@ -127,6 +127,8 @@ CREATE VIEW ausleihe_uebersicht AS
 SELECT a.ausleiheID, a.datumausleihe, a.datumruekgabe, k.kundenID, k.name, k.geburtsdatum, au.fahrzeugID, au.kennzeichen, au.typ, au.sitze, au.gewicht, s.schadenID, s.meldung, s.kosten, s.versicherung
 FROM ausleihe a
 JOIN kunde k ON a.kundenID = k.kundenID
+JOIN auto au ON a.fahrzeugID = au.fahrzeugID
+LEFT JOIN schaden s ON a.ausleiheID = s.ausleiheID
 ORDER BY k.kundenID, a.ausleiheID;
 
 -------------------------------------------------------
