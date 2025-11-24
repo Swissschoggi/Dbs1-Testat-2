@@ -96,34 +96,62 @@ FROM ausleihe a
 JOIN kunde k ON a.kundenID = k.kundenID
 ORDER BY a.datumruekgabe;
 
--------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------
 -- d) Schreiben Sie eine sinnvolle Query mit einer Window-Funktion.
--- Berechnet die gesamten Schadenkosten pro Kunde und zeigt sie neben den einzelnen Ausleihen an.
--------------------------------------------------------------------------------------------------
+-- Top 3 Kunden mit meisten Ausleihen
+-------------------------------------------------------------------
 SELECT 
-    k.kundenID,
-    k.name,
-    a.ausleiheID,
-    s.kosten,
-    SUM(s.kosten) OVER (PARTITION BY k.kundenID) AS gesamtkosten_pro_kunde
-FROM schaden s
-JOIN ausleihe a ON s.ausleiheID = a.ausleiheID
+    name,
+    vorname,
+    COUNT(*) AS anzahl_ausleihen,
+    RANK() OVER (ORDER BY COUNT(*) DESC) AS rang
+FROM 
+    kunde
+JOIN 
+    ausleihe USING (kundenID)
+GROUP BY 
+    name, vorname
+ORDER BY 
+    anzahl_ausleihen DESC
+LIMIT 3;
+
+--------------------------------------------------------------------
+-- a) Schreiben Sie eine View, die mindestens drei tabellen umfasst.
+--------------------------------------------------------------------
+
+CREATE VIEW ausleihe_uebersicht AS
+SELECT a.ausleiheID, a.datumausleihe, a.datumruekgabe, k.kundenID, k.name, k.geburtsdatum, au.fahrzeugID, au.kennzeichen, au.typ, au.sitze, au.gewicht, s.schadenID, s.meldung, s.kosten, s.versicherung
+FROM ausleihe a
 JOIN kunde k ON a.kundenID = k.kundenID
 ORDER BY k.kundenID, a.ausleiheID;
 
 ------------
 -- Aufgabe 3
 ------------
-CREATE VIEW AutoverleihPublic AS
-SELECT a.ausleiheid, a.datumausleihe, a.datumruekgabe, k.kundenID, k.name, k.vorname, au.fahrzeugID, au.kennzeichen, au.typ, au.sitze, au.gewicht, s.schadenID, s.meldung, s.kosten, s.versicherung
+
+--------------------------------------------------------------------
+-- a) Schreiben Sie eine View, die mindestens drei tabellen umfasst.
+--------------------------------------------------------------------
+
+CREATE VIEW ausleihe_uebersicht AS
+SELECT a.ausleiheID, a.datumausleihe, a.datumruekgabe, k.kundenID, k.name, k.geburtsdatum, au.fahrzeugID, au.kennzeichen, au.typ, au.sitze, au.gewicht, s.schadenID, s.meldung, s.kosten, s.versicherung
 FROM ausleihe a
-INNER JOIN kunde k ON a.kundenID = k.kundenID
-INNER JOIN auto au ON a.fahrzeugID = au.fahrzeugID
+JOIN kunde k ON a.kundenID = k.kundenID
+JOIN auto au ON a.fahrzeugID = au.fahrzeugID
 LEFT JOIN schaden s ON a.ausleiheID = s.ausleiheID;
 
-SELECT * 
-FROM AutoverleihPublic 
-ORDER BY datumausleihe DESC;
+-------------------------------------------------------
+-- b) Schreiben Sie dann eine normale Query, welche diese View verwendet.
+-- Abfrage aller Ausleihen mit Schäden und deren Kosten
+-------------------------------------------------------
+SELECT 
+    kundenname, kennzeichen, typ, datumausleihe, datumruekgabe, meldung, kosten, versicherung
+FROM ausleihe_uebersicht
+WHERE schadenID IS NOT NULL
+    AND kosten > 1000
+ORDER BY 
+    kosten DESC,
+    datumausleihe DESC;
 
 --------------------------------------------------------------------------------------------------------
 -- c) Schreiben Sie eine zweite, einfache View, die sich updaten lässt.
