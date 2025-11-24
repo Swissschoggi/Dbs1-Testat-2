@@ -110,3 +110,24 @@ FROM schaden s
 JOIN ausleihe a ON s.ausleiheID = a.ausleiheID
 JOIN kunde k ON a.kundenID = k.kundenID
 ORDER BY k.kundenID, a.ausleiheID;
+
+------------
+-- Aufgabe 3
+------------
+
+--------------------------------------------------------------------------------------------------------
+-- c) Schreiben Sie eine zweite, einfache View, die sich updaten lässt.
+-- View erstellt für die Anpassung der Kunden, falls sich eine Name oder auch ein Vorname ändern sollte. 
+--------------------------------------------------------------------------------------------------------
+CREATE VIEW kundenAnpassung AS
+SELECT kundenID, name, vorname
+FROM kunde;
+
+--------------------------------------------------------------------------------------------------------
+-- d) Ändern Sie einen Datensatz über die zweite View mit einem UPDATE-Statement.
+-- update für die view erstellt, die den Nachnamen von einem Nutzer ändert.
+--------------------------------------------------------------------------------------------------------
+UPDATE kundenAnpassung
+SET name = 'Fritz'
+WHERE kundenID = 2;
+SELECT * FROM kundenAnpassung;
