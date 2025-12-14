@@ -160,3 +160,19 @@ UPDATE kundenAnpassung
 SET name = 'Fritz'
 WHERE kundenID = 2;
 SELECT * FROM kundenAnpassung;
+
+-------------------------------
+-- Aufgabe 1 Lateral Join-Query
+-------------------------------
+SELECT
+    k.kundenID, k.name, k.vorname, s.schadenID, s.kosten, s.meldung
+FROM kunde k
+JOIN LATERAL (
+    SELECT
+        s.schadenID, s.kosten, s.meldung
+    FROM ausleihe a
+    JOIN schaden s ON s.ausleiheID = a.ausleiheID
+    WHERE a.kundenID = k.kundenID
+    ORDER BY s.kosten DESC
+) AS s ON true
+ORDER BY k.kundenID, s.kosten DESC;
